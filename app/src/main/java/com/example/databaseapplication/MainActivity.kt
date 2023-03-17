@@ -13,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val dbHelper = MyDatabaseHelper(this, "BookStore.db", 1)
+        binding.createDatabaseButton.setOnClickListener {
+            dbHelper.writableDatabase
+        }
     }
 }
